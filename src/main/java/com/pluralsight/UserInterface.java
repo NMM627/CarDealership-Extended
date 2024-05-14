@@ -8,7 +8,37 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
+    void processGetByPriceRequest() {
 
 
+    }
 
+    void processGetByMakeModelRequest() {
+
+    }
+
+    void processGetByYearRequest() {
+
+
+    }
+
+    void processGetByColorRequest() {
+    }
+
+    void processGetByMileageRequest() {
+    }
+
+    void processGetVehicleTypeRequest() {
+    }
+
+    void processGetAllVehiclesRequest() {
+    }
+
+    void processAddVehicleRequest() {
+    }
+
+    void processRemoveVehicleRequest() {
+
+    }
 }
+

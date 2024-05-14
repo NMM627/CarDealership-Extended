@@ -16,14 +16,13 @@ public class DealershipFileManager {
             FileReader fileReader = new FileReader(FILE_NAME);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
-            while ((line = bufferedReader.readLine()) !=null {
+            while ((line = bufferedReader.readLine()) !=null) {
 
                 String[] parts = line.split("\\|");
             }
-
+            return null;
+        } catch (IOException e) {
+            return null;
         }
-
     }
-
-
-
+}
