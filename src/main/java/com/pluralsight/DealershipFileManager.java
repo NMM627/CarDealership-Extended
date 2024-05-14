@@ -10,7 +10,7 @@ public class DealershipFileManager {
 
     public static final String FILE_NAME = "dealership.csv";
 
-    public Dealership getDealership() {
+    public static Dealership getDealership() {
 
         try {
 
@@ -47,5 +47,8 @@ public class DealershipFileManager {
         } catch (IOException e) {
             return null;
         }
+    }
+
+    public static void saveDealership(Dealership dealership) {
     }
 }

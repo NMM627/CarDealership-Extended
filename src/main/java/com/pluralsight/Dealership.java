@@ -70,10 +70,15 @@ public class Dealership {
         return null; // remove this line
     }
 
+    public List<Vehicle> getAllVehicles() {
+        return inventory;
+    }
     public void addVehicle(Vehicle vehicle) {
+        inventory.add(vehicle);
     }
     public void removeVehicle(Vehicle vehicle){
 
     }
+
 }
 
