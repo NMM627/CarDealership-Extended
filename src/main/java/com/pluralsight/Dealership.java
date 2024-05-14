@@ -69,5 +69,11 @@ public class Dealership {
     public List<Vehicle> getVehiclesByType() {
         return null; // remove this line
     }
+
+    public void addVehicle(Vehicle vehicle) {
+    }
+    public void removeVehicle(Vehicle vehicle){
+
+    }
 }
 
