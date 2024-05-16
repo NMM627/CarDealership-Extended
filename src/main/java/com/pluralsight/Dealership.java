@@ -1,11 +1,6 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class Dealership {
 
@@ -46,31 +41,77 @@ public class Dealership {
 
     }
 
-    public List<Vehicle> getVehiclesByPrice(double min, double max) {
-        return null; // remove this line
+    public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getPrice() >= min && vehicle.getPrice() <= max) {
+                vehicles.add(vehicle);
+            }
+        }
+        return vehicles;
     }
 
-    public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
-        return null; // remove this line
+    public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getMake().equalsIgnoreCase(make)) vehicle.getModel().equalsIgnoreCase(model);
+            {
+                vehicles.add(vehicle);
+            }
+
+        }
+        return vehicles;
     }
 
-    public List<Vehicle> getVehiclesByYear(double min, double max) {
-        return null; // remove this line
+    public ArrayList<Vehicle> getVehiclesByYear(double min, double max) {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getYear() >= min && vehicle.getYear() <= max) {
+                vehicle.add(vehicle);
+
+            }
+
+
+        }
+
+
+        return vehicles;
     }
 
-    public List<Vehicle> getVehiclesByColor(String color) {
-        return null; // remove this line
+
+    public ArrayList<Vehicle> getVehiclesByColor(String color) {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getColor().equalsIgnoreCase(color)) ;
+            vehicle.add(vehicle);
+
+
+        }
+
+
+        return vehicles;
     }
 
-    public List<Vehicle> getVehiclesByMileage() {
-        return null; // remove this line
+    public ArrayList<Vehicle> getVehiclesByMileage(int odometer) {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getOdometer()==odometer)
+                vehicle.add(vehicle);
+
+        }
+        return vehicles;
     }
 
-    public List<Vehicle> getVehiclesByType() {
-        return null; // remove this line
+    public ArrayList<Vehicle> getVehiclesByType(String type) {
+       ArrayList<Vehicle> vehicles = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVehicleType().equalsIgnoreCase(type));
+            vehicle.add(vehicle);
+        }
+        return vehicles;
     }
 
-    public List<Vehicle> getAllVehicles() {
+    public ArrayList<Vehicle> getAllVehicles() {
         return inventory;
     }
     public void addVehicle(Vehicle vehicle) {

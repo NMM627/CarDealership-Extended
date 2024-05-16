@@ -8,6 +8,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
+    private Dealership dealership;
+
+    public UserInterface() {
+    }
+
     void display() {
         init();
         Scanner scanner = new Scanner(System.in);
@@ -33,7 +38,7 @@ public class UserInterface {
                 case "4" -> { processGetByColorRequest();}
                 case "5" -> { processGetByMileageRequest();}
                 case "6" -> { processGetVehicleTypeRequest();}
-                case "7" -> { processAllVehiclesRequest();}
+                case "7" -> { processGetAllVehiclesRequest();}
                 case "8" -> { processAddVehicleRequest();}
                 case "9" -> { processRemoveVehicleRequest();}
                 case "99" -> {
@@ -44,12 +49,15 @@ public class UserInterface {
     }
 
     private void init() {
+        DealershipFileManager  manager = new DealershipFileManager();
+        this.dealership = manager.getDealership();
     }
 
-    private void displayVehicles(List<Vehicle> parameter) {
-    }
-
-    private void processAllVehiclesRequest(){
+    private void displayVehicles(List<Vehicle> vehicles) {
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle);
+            
+        }
 
     }
 
@@ -77,6 +85,9 @@ public class UserInterface {
     }
 
     void processGetAllVehiclesRequest() {
+        ArrayList<Vehicle>vehicles = dealership.getAllVehicles();
+        displayVehicles(vehicles);
+        
     }
 
     void processAddVehicleRequest() {

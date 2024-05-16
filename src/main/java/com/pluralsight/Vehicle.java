@@ -2,6 +2,7 @@ package com.pluralsight;
 
 
 public class Vehicle {
+    public Object Make;
 
 
     // Initialize variables
@@ -92,15 +93,9 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
-                "vin=" + vin +
-                ", year=" + year +
-                ", make='" + make + '\'' +
-                ", model='" + model + '\'' +
-                ", vehicleType='" + vehicleType + '\'' +
-                ", color='" + color + '\'' +
-                ", odometer=" + odometer +
-                ", price=" + price +
-                '}';
+        return null;
+    }
+
+    public void add(Vehicle vehicle) {
     }
 }
