@@ -1,12 +1,6 @@
 package com.pluralsight;
 
-
 public class Vehicle {
-    public Object Make;
-
-
-    // Initialize variables
-
     private int vin;
     private int year;
     private String make;
@@ -93,9 +87,15 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return null;
-    }
-
-    public void add(Vehicle vehicle) {
+        return "Vehicle{" +
+                "vin=" + vin +
+                ", year=" + year +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", vehicleType='" + vehicleType + '\'' +
+                ", color='" + color + '\'' +
+                ", odometer=" + odometer +
+                ", price=" + price +
+                '}';
     }
 }

@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ContractDataManager {
+public class ContractFileManager {
     public void saveContract(Contract parameter){
         try {
             FileWriter fw=new FileWriter("contract.csv",true);

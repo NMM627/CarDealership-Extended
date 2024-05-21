@@ -7,6 +7,16 @@ public class SalesContract extends Contract {
     private double processingFee;
     private boolean financed;
 
+
+    public SalesContract(String date, String customerName, String customerEmail, Vehicle vehicleSold, double salesTaxAmount, double recordingFee, double processingFee, boolean financed) {
+        super(date, customerName, customerEmail, vehicleSold);
+        this.salesTaxAmount = salesTaxAmount;
+        this.recordingFee = recordingFee;
+        this.processingFee = processingFee;
+        this.financed = financed;
+
+    }
+
     public double getSalesTaxAmount() {
         return salesTaxAmount;
     }
@@ -39,32 +49,30 @@ public class SalesContract extends Contract {
         this.financed = financed;
     }
 
-    public SalesContract(String date, String customerName, String customerEmail, Vehicle vehicleSold, double salesTaxAmount, double recordingFee, double processingFee, boolean financed) {
-        super(date, customerName, customerEmail, vehicleSold);
-        this.salesTaxAmount = salesTaxAmount;
-        this.recordingFee = recordingFee;
-        this.processingFee = processingFee;
-        this.financed = financed;
-
-    }
 
     @Override
     public double getTotalPrice() {
-        return getVehicleSold().getPrice()
-                + salesTaxAmount + recordingFee + processingFee;
+        return getVehicleSold().getPrice() + salesTaxAmount + recordingFee + processingFee;
     }
 
     @Override
     public double getMonthlyPayment() {
-        if (financed) {
-            double totalPrice = getTotalPrice();
-            if (totalPrice >= 10_000) {
-                return totalPrice*0.0425;
+        int numberOfPayments = 0;
+        {
+            double interestRate = 0;
+            if (financed) {
+                if (getVehicleSold().getPrice() >= 10000) {
+                    numberOfPayments = 48;
+                    interestRate = 4.25 / 1200;
+                } else {
+                    numberOfPayments = 24;
+                    interestRate = 5.25 / 1200;
+                }
+                double monthlyPayment = getTotalPrice() * (interestRate * Math.pow(1 + interestRate, numberOfPayments)) / (Math.pow(1 + interestRate, numberOfPayments) - 1);
+                monthlyPayment = Math.round(monthlyPayment * 100);
+                return monthlyPayment;
             } else {
-                return totalPrice*0.0525;
+                return 0;
             }
-        } else {
-            return 0;
         }
-    }
-}
+    }}
